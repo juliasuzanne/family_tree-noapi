@@ -10,6 +10,11 @@ class PhotosController < ApplicationController
   end
 
   def new
+    @photo = Photo.new
+    render template: "photos/new"
+  end
+
+  def create
     @photo = Photo.new(
       name: params[:photo][:name],
       width: params[:photo][:width],
@@ -23,15 +28,23 @@ class PhotosController < ApplicationController
     end
   end
 
-  def create
-  end
-
   def edit
+    @photo = Photo.find_by(id: params[:id])
+    render template: "photos/edit"
   end
 
   def update
+    @photo = Photo.find_by(id: params[:id])
+    @photo.name = params[:photo][:name]
+    @photo.width = params[:photo][:width]
+    @photo.height = params[:photo][:height]
+    @photo.save
+    redirect_to "/photos"
   end
 
   def destroy
+    @photo = Photo.find_by(id: params[:id])
+    @photo.destroy
+    redirect_to "/photos", status: :see_other
   end
 end

@@ -2,4 +2,7 @@
 
 <% @photos.each do |photo| %>
 <h2> <%= photo.name %></h2>
+<%= link_to "More Info", photo %>
 <% end %>
+
+<% link_to "New photo", new_photo_path %>

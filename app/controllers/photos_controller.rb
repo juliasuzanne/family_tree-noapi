@@ -17,8 +17,8 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(
       name: params[:photo][:name],
-      width: params[:photo][:width],
-      height: params[:photo][:width],
+      born: params[:photo][:born],
+      description: params[:photo][:description],
     )
 
     if @photo.save
@@ -36,8 +36,8 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find_by(id: params[:id])
     @photo.name = params[:photo][:name]
-    @photo.width = params[:photo][:width]
-    @photo.height = params[:photo][:height]
+    @photo.born = params[:photo][:born]
+    @photo.description = params[:photo][:description]
     @photo.save
     redirect_to "/photos"
   end

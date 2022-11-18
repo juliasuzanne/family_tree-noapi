@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "photos#index"
+  root "sessions#new"
   resources :photos
 
   # Automatically generates the following routes

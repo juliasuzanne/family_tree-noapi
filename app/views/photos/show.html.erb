@@ -2,8 +2,8 @@
 
 <h2><%= @photo.name %> </h2>
 <%= image_tag ("#{@photo.name}.png")%>
-<p>Width: <%= @photo.width %></p>
-<p>Height: <%= @photo.height %></p>
+<p>Blurb: <%= @photo.description %></p>
+<p>Born: <%= @photo.born %></p>
 
 <a href="/photos">Back to all photos</a>
 <%= link_to "Edit photo", edit_photo_path(@photo) %>
